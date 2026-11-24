@@ -1,5 +1,14 @@
 # Controls & Settings change notes
 
+## 0.3.0 unreleased
+
+- Uses Controls, Settings, and UI as the project and namespace names.
+- Builds Controls.dll and packages the source as SP.Controls.UI 0.2.0 and
+  SP.Controls.Settings 0.3.0.
+- Updates the examples and consuming mod references.
+- Verification passed for both Release solutions, the source packages, and a
+  consumer restored from the packages.
+
 ## 0.2.2 — unreleased
 
 - Moves SharedUi, SharedSettings, and the Controls DLL project to

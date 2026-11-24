@@ -1,0 +1,19 @@
+<Project>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ModActivity.cs" Link="UI/ModActivity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NativeUi.cs" Link="UI/NativeUi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NativeForms.cs" Link="UI/NativeForms.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NativePrimitives.cs" Link="UI/NativePrimitives.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SliderScale.cs" Link="UI/SliderScale.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WidgetGallery.cs" Link="UI/WidgetGallery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NativeLayout.cs" Link="UI/NativeLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChoicePicker.cs" Link="UI/ChoicePicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LiveCollections.cs" Link="UI/LiveCollections.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NativeWindows.cs" Link="UI/NativeWindows.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpandableDetails.cs" Link="UI/ExpandableDetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SearchablePicker.cs" Link="UI/SearchablePicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SegmentedProgress.cs" Link="UI/SegmentedProgress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnitStatusPage.cs" Link="UI/UnitStatusPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ToolbarToggle.cs" Link="UI/ToolbarToggle.cs" />
+  </ItemGroup>
+</Project>

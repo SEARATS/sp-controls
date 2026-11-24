@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>0.3.0</Version>
+    <Title>Controls &amp; Settings</Title>
+    <Description>Native Sea Power UI controls and shared mod settings pages.</Description>
+    <RepositoryUrl>https://github.com/SEARATS/sp-controls</RepositoryUrl>
+    <PluginDeployDirectory>$(SeaPowerDir)/Sea Power_Data/StreamingAssets/ControlsAndSettings</PluginDeployDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Seapower-Scripts" HintPath="$(GameManaged)\Seapower-Scripts.dll" Private="false" />
+    <Reference Include="Noesis.NoesisGUI" HintPath="$(GameManaged)\Noesis.NoesisGUI.dll" Private="false" />
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(GameManaged)\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="UniRx" HintPath="$(GameManaged)\UniRx.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(SeaPowerDir)\BepInEx\core\0Harmony.dll" Private="false" />
+    <Reference Include="AnchorChain" HintPath="$(AnchorChainDll)" Private="false" />
+  </ItemGroup>
+  <Import Project="../UI/UI.props" />
+  <Import Project="../Settings/Settings.props" />
+  <Target Name="StageWorkshopPackage" AfterTargets="Build">
+    <PropertyGroup>
+      <WorkshopPackageDirectory>$(MSBuildProjectDirectory)/../../artifacts/workshop/ControlsAndSettings</WorkshopPackageDirectory>
+      <WorkshopPreviewDirectory>$(MSBuildProjectDirectory)/../../artifacts/workshop/ControlsAndSettings-previews</WorkshopPreviewDirectory>
+    </PropertyGroup>
+    <ItemGroup>
+      <WorkshopPreview Include="$(MSBuildProjectDirectory)/../../content/workshop/controls-previews/*.png" />
+    </ItemGroup>
+    <MakeDir Directories="$(WorkshopPackageDirectory)" />
+    <Copy SourceFiles="$(TargetPath);$(MSBuildProjectDirectory)/README.md;$(MSBuildProjectDirectory)/../../content/workshop/controls/_info.ini" DestinationFolder="$(WorkshopPackageDirectory)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)/../../docs/controls-settings/changelog.md" DestinationFiles="$(WorkshopPackageDirectory)/CHANGELOG.md" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)/../../content/workshop/controls/thumbnail.jpg" DestinationFiles="$(WorkshopPackageDirectory)/thumbnail.jpg" Condition="Exists('$(MSBuildProjectDirectory)/../../content/workshop/controls/thumbnail.jpg')" />
+    <MakeDir Directories="$(WorkshopPreviewDirectory)" />
+    <Copy SourceFiles="@(WorkshopPreview)" DestinationFolder="$(WorkshopPreviewDirectory)" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="DeployToSeaPower" AfterTargets="StageWorkshopPackage" Condition="'$(OS)' == 'Windows_NT' and '$(DeployToGame)' == 'true'">
+    <MakeDir Directories="$(PluginDeployDirectory)" />
+    <Copy SourceFiles="$(TargetPath);$(MSBuildProjectDirectory)/README.md;$(MSBuildProjectDirectory)/../../content/workshop/controls/_info.ini" DestinationFolder="$(PluginDeployDirectory)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)/../../docs/controls-settings/changelog.md" DestinationFiles="$(PluginDeployDirectory)/CHANGELOG.md" />
+  </Target>
+</Project>

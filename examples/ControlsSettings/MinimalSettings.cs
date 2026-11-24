@@ -1,10 +1,10 @@
 using AnchorChain;
-using SeaPower.SharedSettings;
+using Settings;
 
 namespace ControlsSettings.Examples;
 
-[ACPlugin("controls-settings.example.simple", "Simple settings example", "0.1.1", after: new[] { SeaPower.Controls.Plugin.Id })]
-[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.2", null)]
+[ACPlugin("controls-settings.example.simple", "Simple settings example", "0.1.2", after: new[] { Controls.Plugin.Id })]
+[ACDependency(Controls.Plugin.Id, "0.3.0", null)]
 public class MinimalSettings : IAnchorChainMod, ISettingsProvider<DisplaySettings>
 {
     public string Id => "controls-settings.example.simple";

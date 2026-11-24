@@ -1,7 +1,7 @@
 <Solution>
-  <Project Path="src/SeaPower.SharedUi/SeaPower.SharedUi.csproj" />
-  <Project Path="src/SeaPower.SharedSettings/SeaPower.SharedSettings.csproj" />
-  <Project Path="src/SeaPower.Controls/SeaPower.Controls.csproj" />
+  <Project Path="src/UI/UI.csproj" />
+  <Project Path="src/Settings/Settings.csproj" />
+  <Project Path="src/Controls/Controls.csproj" />
   <Folder Name="/Examples/">
     <Project Path="examples/ControlsSettings/ControlsSettings.csproj" />
   </Folder>

@@ -1,8 +1,8 @@
 using Noesis;
 using SeapowerUI;
-using SeaPower.SharedSettings;
-using SeaPower.SharedUi;
-using static SeaPower.SharedUi.NativeUi;
+using Settings;
+using UI;
+using static UI.NativeUi;
 
 namespace SeaPower.GameBridge;
 

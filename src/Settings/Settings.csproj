@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>0.3.0</Version>
+    <PackageId>SP.Controls.Settings</PackageId>
+    <Authors>agm-114</Authors>
+    <Description>Source package for Sea Power mod settings and Gameplay tabs.</Description>
+    <RepositoryUrl>https://github.com/SEARATS/sp-controls</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../UI/UI.csproj" />
+    <None Include="*.cs" Pack="true" PackagePath="build/" />
+    <None Update="Settings.props" Pack="true" PackagePath="build/SP.Controls.Settings.props" />
+    <None Include="../UI/_._" Pack="true" PackagePath="lib/$(TargetFramework)/" />
+    <None Update="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

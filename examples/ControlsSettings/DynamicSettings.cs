@@ -1,13 +1,13 @@
 using AnchorChain;
 using Noesis;
-using SeaPower.Controls;
-using SeaPower.SharedSettings;
-using static SeaPower.SharedUi.NativeUi;
+using Controls;
+using Settings;
+using static UI.NativeUi;
 
 namespace ControlsSettings.Examples;
 
-[ACPlugin("controls-settings.example.dynamic", "Dynamic settings example", "0.1.1", after: new[] { SeaPower.Controls.Plugin.Id })]
-[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.2", null)]
+[ACPlugin("controls-settings.example.dynamic", "Dynamic settings example", "0.1.2", after: new[] { Controls.Plugin.Id })]
+[ACDependency(Controls.Plugin.Id, "0.3.0", null)]
 public class DynamicSettings : IAnchorChainMod, IScriptedSettingsProvider<AdvancedSettings>
 {
     private enum Operation { BuildPage }

@@ -2,10 +2,10 @@
   <Import Project="../../src/Directory.Build.props" />
   <PropertyGroup>
     <IsPackable>false</IsPackable>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../../src/SeaPower.Controls/SeaPower.Controls.csproj" Private="false" />
+    <ProjectReference Include="../../src/Controls/Controls.csproj" Private="false" />
     <Reference Include="AnchorChain" HintPath="$(AnchorChainDll)" Private="false" />
     <Reference Include="Seapower-Scripts" HintPath="$(GameManaged)/Seapower-Scripts.dll" Private="false" />
     <Reference Include="Noesis.NoesisGUI" HintPath="$(GameManaged)/Noesis.NoesisGUI.dll" Private="false" />
