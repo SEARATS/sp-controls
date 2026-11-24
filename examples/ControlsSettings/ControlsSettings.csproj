@@ -2,6 +2,7 @@
   <Import Project="../../src/Directory.Build.props" />
   <PropertyGroup>
     <IsPackable>false</IsPackable>
+    <Version>0.1.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/SeaPower.Controls/SeaPower.Controls.csproj" Private="false" />

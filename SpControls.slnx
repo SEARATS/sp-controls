@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="src/SeaPower.SharedUi/SeaPower.SharedUi.csproj" />
+  <Project Path="src/SeaPower.SharedSettings/SeaPower.SharedSettings.csproj" />
+  <Project Path="src/SeaPower.Controls/SeaPower.Controls.csproj" />
+  <Folder Name="/Examples/">
+    <Project Path="examples/ControlsSettings/ControlsSettings.csproj" />
+  </Folder>
+</Solution>

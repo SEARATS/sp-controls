@@ -6,7 +6,7 @@ more easily.
 
 Settings allows you to easily add settings pages to your mods.
 
-Version 0.2.1 (unreleased). See [change notes](../../docs/controls-settings/changelog.md).
+Version 0.2.2 (unreleased). See [change notes](../../docs/controls-settings/changelog.md).
 
 Subscribe to [Controls & Settings](https://steamcommunity.com/sharedfiles/filedetails/?id=3839698527)
 on the Steam Workshop and enable it in Sea Power's Mod Manager. This is an
@@ -27,7 +27,7 @@ Anchor Chain and Keel:
 
 ```csharp
 [ACPlugin("example.my-mod", "My Mod", "1.0.0", after: new[] { SeaPower.Controls.Plugin.Id })]
-[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.1", null)]
+[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.2", null)]
 ```
 
 ## Settings with minimal code
@@ -46,7 +46,7 @@ using AnchorChain;
 using SeaPower.SharedSettings;
 
 [ACPlugin("example.my-mod", "My Mod", "1.0.0", after: new[] { SeaPower.Controls.Plugin.Id })]
-[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.1", null)]
+[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.2", null)]
 public class Plugin : IAnchorChainMod, ISettingsProvider<DisplaySettings>
 {
     public string Id => "example.my-mod";
@@ -163,9 +163,10 @@ dotnet build src/SeaPower.Controls/SeaPower.Controls.csproj -c Release -p:Deploy
 ```
 
 The build stages `SeaPower.Controls.dll`, this README, Workshop metadata and the
-available thumbnail in `artifacts/workshop/ControlsAndSettings`. Existing control
-gallery images and captured settings pages are staged separately in
+thumbnail in `artifacts/workshop/ControlsAndSettings`. Gallery images and captured
+settings pages from `content/workshop/controls-previews/` are staged separately in
 `artifacts/workshop/ControlsAndSettings-previews`. Capture real installed settings
-pages with `scripts/capture-workshop-icons.ps1 -Mod settings`; see
-[capture instructions](../../scripts/mod-icons.md). Build again to collect the images.
+pages using the [crimean-tom capture tools](https://github.com/agm-114/crimean-tom/blob/main/scripts/mod-icons.md).
+Store the thumbnail in `content/workshop/controls/thumbnail.jpg` and gallery
+images in `content/workshop/controls-previews/`, then build again to stage them.
 Publishing is a separate explicit Workshop operation.

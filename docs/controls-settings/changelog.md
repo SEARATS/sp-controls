@@ -1,5 +1,20 @@
 # Controls & Settings change notes
 
+## 0.2.2 — unreleased
+
+- Moves SharedUi, SharedSettings, and the Controls DLL project to
+  `SEARATS/sp-controls`, retaining their source history and existing assembly names.
+- Names the Workshop item Controls & Settings.
+- Versions the UI source package at 0.1.2 and settings source package and runtime
+  at 0.2.2. Runtime consumers declare Controls & Settings 0.2.2 or newer.
+- Builds the runtime and typed provider examples from `SpControls.slnx`.
+  Source consumers update their import paths to this checkout.
+- Keeps Workshop artwork with the package source so standalone builds stage
+  the thumbnail and previews.
+- Verification passed for the standalone Release solution, both source packages,
+  a consumer restored from those packages, and the Crimean Tom Release solution
+  using the extracted projects. This extraction has build verification only.
+
 ## 0.2.1 — unreleased
 
 - Combines Controls and the settings system in one Anchor Chain mod, retaining

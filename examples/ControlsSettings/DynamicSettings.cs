@@ -6,8 +6,8 @@ using static SeaPower.SharedUi.NativeUi;
 
 namespace ControlsSettings.Examples;
 
-[ACPlugin("controls-settings.example.dynamic", "Dynamic settings example", "0.1.0", after: new[] { SeaPower.Controls.Plugin.Id })]
-[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.1", null)]
+[ACPlugin("controls-settings.example.dynamic", "Dynamic settings example", "0.1.1", after: new[] { SeaPower.Controls.Plugin.Id })]
+[ACDependency(SeaPower.Controls.Plugin.Id, "0.2.2", null)]
 public class DynamicSettings : IAnchorChainMod, IScriptedSettingsProvider<AdvancedSettings>
 {
     private enum Operation { BuildPage }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SeaPower.Controls;
 
-[ACPlugin(Id, "Controls & Settings", "0.2.1")]
+[ACPlugin(Id, "Controls & Settings", "0.2.2")]
 public class Plugin : IAnchorChainMod
 {
     public const string Id = "crimean-tom.controls";

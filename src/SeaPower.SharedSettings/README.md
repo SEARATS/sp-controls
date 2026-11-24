@@ -10,7 +10,7 @@ UnityEngine.CoreModule and Harmony. Add the source package to the project.
 It brings in the SharedUi sources through its NuGet dependency.
 
 ```xml
-<PackageReference Include="SeaPower.SharedSettings" Version="[0.2.1]" PrivateAssets="all" />
+<PackageReference Include="SeaPower.SharedSettings" Version="[0.2.2]" PrivateAssets="all" />
 ```
 
 Use a NuGet source containing both packages. For builds from this checkout, use

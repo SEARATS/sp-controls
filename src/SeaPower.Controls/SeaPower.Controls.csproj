@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>0.2.1</Version>
+    <Version>0.2.2</Version>
     <Title>Controls &amp; Settings</Title>
     <Description>Native Sea Power UI controls and shared mod settings pages.</Description>
+    <RepositoryUrl>https://github.com/SEARATS/sp-controls</RepositoryUrl>
     <PluginDeployDirectory>$(SeaPowerDir)/Sea Power_Data/StreamingAssets/ControlsAndSettings</PluginDeployDirectory>
   </PropertyGroup>
   <ItemGroup>
@@ -21,12 +22,12 @@
       <WorkshopPreviewDirectory>$(MSBuildProjectDirectory)/../../artifacts/workshop/ControlsAndSettings-previews</WorkshopPreviewDirectory>
     </PropertyGroup>
     <ItemGroup>
-      <WorkshopPreview Include="$(MSBuildProjectDirectory)/../../artifacts/mod-icons/controls-gallery/*-page.png;$(MSBuildProjectDirectory)/../../artifacts/mod-icons/settings-pages/*.png" />
+      <WorkshopPreview Include="$(MSBuildProjectDirectory)/../../content/workshop/controls-previews/*.png" />
     </ItemGroup>
     <MakeDir Directories="$(WorkshopPackageDirectory)" />
     <Copy SourceFiles="$(TargetPath);$(MSBuildProjectDirectory)/README.md;$(MSBuildProjectDirectory)/../../content/workshop/controls/_info.ini" DestinationFolder="$(WorkshopPackageDirectory)" />
     <Copy SourceFiles="$(MSBuildProjectDirectory)/../../docs/controls-settings/changelog.md" DestinationFiles="$(WorkshopPackageDirectory)/CHANGELOG.md" />
-    <Copy SourceFiles="$(MSBuildProjectDirectory)/../../artifacts/mod-icons/controls.jpg" DestinationFiles="$(WorkshopPackageDirectory)/thumbnail.jpg" Condition="Exists('$(MSBuildProjectDirectory)/../../artifacts/mod-icons/controls.jpg')" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)/../../content/workshop/controls/thumbnail.jpg" DestinationFiles="$(WorkshopPackageDirectory)/thumbnail.jpg" Condition="Exists('$(MSBuildProjectDirectory)/../../content/workshop/controls/thumbnail.jpg')" />
     <MakeDir Directories="$(WorkshopPreviewDirectory)" />
     <Copy SourceFiles="@(WorkshopPreview)" DestinationFolder="$(WorkshopPreviewDirectory)" SkipUnchangedFiles="true" />
   </Target>
