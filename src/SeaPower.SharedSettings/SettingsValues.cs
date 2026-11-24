@@ -2,34 +2,38 @@ using System.Globalization;
 
 namespace SeaPower.SharedSettings;
 
-internal class SettingsValues
+public class SettingsValues
 {
     private readonly Dictionary<string, Dictionary<string, double>> sections = new(StringComparer.OrdinalIgnoreCase);
 
-    internal double Get(string section, string key, double fallback = 0) =>
+    public double Get(string section, string key, double fallback = 0) =>
         sections.TryGetValue(section, out var values) && values.TryGetValue(key, out double value) ? value : fallback;
 
-    internal void Set(string section, string key, double value)
+    public bool GetBoolean(string section, string key, bool fallback = false) => Get(section, key, fallback ? 1 : 0) != 0;
+
+    public void Set(string section, string key, bool value) => Set(section, key, value ? 1 : 0);
+
+    public void Set(string section, string key, double value)
     {
         if (!sections.TryGetValue(section, out var values)) sections.Add(section, values = new(StringComparer.OrdinalIgnoreCase));
         values[key] = value;
     }
 
-    internal IEnumerable<KeyValuePair<string, double>> Entries(string section) =>
+    public IEnumerable<KeyValuePair<string, double>> Entries(string section) =>
         sections.TryGetValue(section, out var values) ? values : [];
 
-    internal IEnumerable<string> SectionNames => sections.Keys;
+    public IEnumerable<string> SectionNames => sections.Keys;
 
-    internal bool Remove(string section, string key) => sections.TryGetValue(section, out var values) && values.Remove(key);
+    public bool Remove(string section, string key) => sections.TryGetValue(section, out var values) && values.Remove(key);
 
-    internal SettingsValues Copy()
+    public SettingsValues Copy()
     {
         var copy = new SettingsValues();
         copy.Overlay(this, replaceSections: true);
         return copy;
     }
 
-    internal void Overlay(SettingsValues overrides, bool replaceSections = false)
+    public void Overlay(SettingsValues overrides, bool replaceSections = false)
     {
         foreach (var section in overrides.sections)
         {
@@ -38,11 +42,11 @@ internal class SettingsValues
         }
     }
 
-    internal IEnumerable<string> Lines() => sections.SelectMany(section =>
+    public IEnumerable<string> Lines() => sections.SelectMany(section =>
         new[] { $"[{section.Key}]" }.Concat(section.Value.Select(entry =>
             $"{entry.Key}={entry.Value.ToString("R", CultureInfo.InvariantCulture)}")).Append(""));
 
-    internal static SettingsValues Read(TextReader reader)
+    public static SettingsValues Read(TextReader reader)
     {
         var settings = new SettingsValues();
         string section = "";

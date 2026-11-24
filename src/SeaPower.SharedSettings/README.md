@@ -1,11 +1,16 @@
 # Shared gameplay settings
 
+For the public Anchor Chain runtime, use [Controls & Settings](../SeaPower.Controls/README.md).
+It includes declarative and scripted provider interfaces, automatic registration,
+and the same persistence and draft editors. Reference its DLL instead of compiling
+these sources into the same mod. This page documents the embedded-source alternative.
+
 The mod project supplies references to Noesis, Seapower-Scripts,
 UnityEngine.CoreModule and Harmony. Add the source package to the project.
 It brings in the SharedUi sources through its NuGet dependency.
 
 ```xml
-<PackageReference Include="SeaPower.SharedSettings" Version="[0.1.0]" PrivateAssets="all" />
+<PackageReference Include="SeaPower.SharedSettings" Version="[0.2.1]" PrivateAssets="all" />
 ```
 
 Use a NuGet source containing both packages. For builds from this checkout, use

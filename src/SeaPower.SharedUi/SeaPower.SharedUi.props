@@ -1,5 +1,6 @@
 <Project>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ModActivity.cs" Link="SharedUi/ModActivity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NativeUi.cs" Link="SharedUi/NativeUi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NativeForms.cs" Link="SharedUi/NativeForms.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NativePrimitives.cs" Link="SharedUi/NativePrimitives.cs" />

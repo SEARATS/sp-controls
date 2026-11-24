@@ -10,7 +10,7 @@ public static class WidgetGallery
     /// <summary>Opens an interactive gallery in the supplied native window host.</summary>
     public static SeapowerUI.Window Show(UIElement host)
     {
-        var window = Window("ControlsWidgetGallery", "Controls", CreatePage(host), 820, 580);
+        var window = Window("ControlsWidgetGallery", "Controls & Settings", CreatePage(host), 820, 580);
         WindowHostCommands.OpenWindowCommand.Execute(window, host);
         return window;
     }

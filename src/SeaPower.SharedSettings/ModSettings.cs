@@ -2,21 +2,26 @@ using UnityEngine;
 
 namespace SeaPower.SharedSettings;
 
-internal class ModSettings
+public class ModSettings
 {
     private const string ModeSection = "Settings";
     private const string DefaultKey = "UseModDefaults";
     private readonly string path;
     private SettingsValues custom;
-    internal SettingsValues Defaults { get; }
-    internal bool UseDefaults { get; private set; }
-    internal event Action? Changed;
-    internal SettingsValues Current => UseDefaults ? Defaults : custom;
+    public string Id { get; }
+    public SettingsValues Defaults { get; }
+    public bool UseDefaults { get; private set; }
+    public event Action? Changed;
+    public SettingsValues Current => UseDefaults ? Defaults : custom;
 
-    internal ModSettings(string fileName, SettingsValues defaults, Func<SettingsValues>? legacy = null)
+    public ModSettings(string fileName, SettingsValues defaults, Func<SettingsValues>? legacy = null)
     {
+        if (string.IsNullOrWhiteSpace(fileName) || fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0
+            || fileName.Contains('/') || fileName.Contains('\\') || fileName is "." or "..")
+            throw new ArgumentException("Use a unique mod ID without directory separators.", nameof(fileName));
+        Id = fileName;
         path = Path.Combine(Application.persistentDataPath, "CrimeanTom", "Settings", fileName + ".ini");
-        Defaults = defaults;
+        Defaults = defaults.Copy();
         custom = defaults.Copy();
         UseDefaults = true;
         try
@@ -34,9 +39,9 @@ internal class ModSettings
         catch (UnauthorizedAccessException error) { Debug.LogWarning($"[{fileName}] Could not read settings: {error.Message}"); }
     }
 
-    internal SettingsValues Edit() => custom.Copy();
+    public SettingsValues Edit() => custom.Copy();
 
-    internal void Apply(bool useDefaults, SettingsValues values)
+    public void Apply(bool useDefaults, SettingsValues values)
     {
         var saved = values.Copy();
         saved.Set(ModeSection, DefaultKey, useDefaults ? 1 : 0);

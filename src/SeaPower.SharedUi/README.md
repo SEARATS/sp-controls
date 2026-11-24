@@ -2,13 +2,13 @@
 
 The source package compiles into each consuming mod and needs no deployment
 step. The mods and the CLI's development gallery import the same source.
-The [Controls project](../SeaPower.Controls/README.md) builds that source as a
-standalone DLL for the Workshop.
+The [Controls & Settings project](../SeaPower.Controls/README.md) builds that source
+and the settings API as one Anchor Chain mod for the Workshop.
 
 Add the source package to your mod project.
 
 ```xml
-<PackageReference Include="SeaPower.SharedUi" Version="[0.1.0]" PrivateAssets="all" />
+<PackageReference Include="SeaPower.SharedUi" Version="[0.1.1]" PrivateAssets="all" />
 ```
 
 Build both packages from the repository root, then register the output folder
