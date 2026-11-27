@@ -6,7 +6,7 @@ more easily.
 
 Settings allows you to easily add settings pages to your mods.
 
-Version 0.3.1 (unreleased). See [change notes](../../docs/controls-settings/changelog.md).
+Not released yet: merged work is under Unreleased in the [change notes](../../docs/controls-settings/changelog.md); [how releases work](../../docs/release-process.md).
 
 Subscribe to [Controls & Settings](https://steamcommunity.com/sharedfiles/filedetails/?id=3839698527)
 on the Steam Workshop and enable it in Sea Power's Mod Manager. This is an

@@ -30,6 +30,14 @@ Its Workshop package is staged under `artifacts/workshop/ControlsAndSettings`.
 Builds deploy by default on Windows, so use `-p:DeployToGame=false` for build checks.
 Workshop publication requires a separate explicit upload.
 
+## Releases
+
+Merges collect under `## Unreleased` in the [change notes](docs/controls-settings/changelog.md) and never bump a version.
+A release is a deliberate snapshot: version, tag, build from the tag, Workshop and GitHub together.
+Steps: [docs/release-process.md](docs/release-process.md).
+
+## Mod authors
+
 The [mod-author guide](src/Controls/README.md) describes the public DLL,
 dependency declarations, and typed settings models. The
 [examples](examples/ControlsSettings) compile against that DLL.
