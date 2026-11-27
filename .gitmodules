@@ -1,0 +1,3 @@
+[submodule "external/sp-internals"]
+	path = external/sp-internals
+	url = https://github.com/SEARATS/sp-internals.git

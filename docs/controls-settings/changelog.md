@@ -1,5 +1,12 @@
 # Controls & Settings change notes
 
+## 0.3.1 unreleased
+
+- The runtime DLL embeds generated bindings for the Options constructor and
+  Accept handler. Initialize the pinned sp-internals submodule before building.
+- Verified by Release build and offline member resolution against Sea Power
+  `0.9.3-261116`.
+
 ## 0.3.0 unreleased
 
 - Uses Controls, Settings, and UI as the project and namespace names.

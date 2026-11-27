@@ -6,6 +6,9 @@ using SeapowerUI;
 using UnityEngine;
 using UI;
 using static UI.NativeUi;
+#if SP_CONTROLS_GENERATED_TARGETS
+using NativeOptionsMenu = SP.Internals.Generated.Seapower_Scripts.SeapowerUI_OptionsMenuView;
+#endif
 
 namespace Settings;
 
@@ -171,9 +174,16 @@ public static class GameplaySettings
         if (string.IsNullOrWhiteSpace(title)) throw new ArgumentException("Supply a settings tab title.", nameof(title));
         if (!installed)
         {
-            harmony.Patch(AccessTools.Constructor(typeof(OptionsMenuView)),
+#if SP_CONTROLS_GENERATED_TARGETS
+            var constructor = NativeOptionsMenu.Constructors.New.Info;
+            var accept = NativeOptionsMenu.Methods.ButtonAccept_Click.Info;
+#else
+            var constructor = AccessTools.Constructor(typeof(OptionsMenuView));
+            var accept = AccessTools.Method(typeof(OptionsMenuView), "ButtonAccept_Click");
+#endif
+            harmony.Patch(constructor,
                 postfix: new HarmonyMethod(typeof(GameplaySettings), nameof(Attach)));
-            harmony.Patch(AccessTools.Method(typeof(OptionsMenuView), "ButtonAccept_Click"),
+            harmony.Patch(accept,
                 prefix: new HarmonyMethod(typeof(GameplaySettings), nameof(Accept)));
             installed = true;
         }

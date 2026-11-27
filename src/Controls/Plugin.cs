@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Controls;
 
-[ACPlugin(Id, "Controls & Settings", "0.3.0")]
+[ACPlugin(Id, "Controls & Settings", "0.3.1")]
 public class Plugin : IAnchorChainMod
 {
     public const string Id = "crimean-tom.controls";

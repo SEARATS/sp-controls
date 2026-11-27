@@ -1,10 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <Title>Controls &amp; Settings</Title>
     <Description>Native Sea Power UI controls and shared mod settings pages.</Description>
     <RepositoryUrl>https://github.com/SEARATS/sp-controls</RepositoryUrl>
     <PluginDeployDirectory>$(SeaPowerDir)/Sea Power_Data/StreamingAssets/ControlsAndSettings</PluginDeployDirectory>
+    <DefineConstants>$(DefineConstants);SP_CONTROLS_GENERATED_TARGETS</DefineConstants>
+    <InternalsAssemblies Condition="'$(InternalsAssemblies)' == ''">Seapower-Scripts</InternalsAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Seapower-Scripts" HintPath="$(GameManaged)\Seapower-Scripts.dll" Private="false" />
@@ -16,6 +18,7 @@
   </ItemGroup>
   <Import Project="../UI/UI.props" />
   <Import Project="../Settings/Settings.props" />
+  <Import Project="../../external/sp-internals/src/SpInternals/SpInternals.targets" />
   <Target Name="StageWorkshopPackage" AfterTargets="Build">
     <PropertyGroup>
       <WorkshopPackageDirectory>$(MSBuildProjectDirectory)/../../artifacts/workshop/ControlsAndSettings</WorkshopPackageDirectory>
