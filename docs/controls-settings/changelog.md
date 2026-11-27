@@ -1,13 +1,19 @@
 # Controls & Settings change notes
 
-## 0.3.1 unreleased
+Merges add notes under `## Unreleased`; a release turns it into `## x.y.z - <date>` ([release process](../release-process.md)).
+
+## Unreleased
+
+Nothing has been released under this process yet; the notes below were written under the numbers they were planned for.
+
+### Planned as 0.3.1
 
 - The runtime DLL embeds generated bindings for the Options constructor and
   Accept handler. Initialize the pinned sp-internals submodule before building.
 - Verified by Release build and offline member resolution against Sea Power
   `0.9.3-261116`.
 
-## 0.3.0 unreleased
+### Planned as 0.3.0
 
 - Uses Controls, Settings, and UI as the project and namespace names.
 - Builds Controls.dll and packages the source as SP.Controls.UI 0.2.0 and
@@ -16,7 +22,7 @@
 - Verification passed for both Release solutions, the source packages, and a
   consumer restored from the packages.
 
-## 0.2.2 — unreleased
+### Planned as 0.2.2
 
 - Moves SharedUi, SharedSettings, and the Controls DLL project to
   `SEARATS/sp-controls`, retaining their source history and existing assembly names.
@@ -31,7 +37,7 @@
   a consumer restored from those packages, and the Crimean Tom Release solution
   using the extracted projects. This extraction has build verification only.
 
-## 0.2.1 — unreleased
+### Planned as 0.2.1
 
 - Combines Controls and the settings system in one Anchor Chain mod, retaining
   the `SeaPower.Controls.dll` assembly name and existing native-control namespaces.
